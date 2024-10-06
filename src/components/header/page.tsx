@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowLeft } from 'lucide-react';
 import { LoaderCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -11,7 +13,7 @@ export function Header({ step, title }: HeaderProps) {
   const router = useRouter();
 
   const handleNavigationBack = () => {
-    router.push('/home')
+    router.back()
   }
 
   return (
