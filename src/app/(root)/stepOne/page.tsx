@@ -35,7 +35,7 @@ export default function StepOne() {
       height: data.height,
       weight: data.weight
     })
-    router.push('/stepOne')
+    router.push('/createDiet')
   }
 
   return (
@@ -78,11 +78,14 @@ export default function StepOne() {
           error={errors.age?.message}
         />
 
-        <button
-          onClick={handleSubmit(handleNavigation)}
-          className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all ">
-          Avançar
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleSubmit(handleNavigation)}
+            className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
+            Avançar
+          </button>
+        </div>
+
 
       </div>
 
