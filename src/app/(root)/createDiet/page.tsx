@@ -3,8 +3,10 @@
 import { Header } from "@/components/header/page";
 import { Select } from "@/components/input/select";
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from "react-hook-form"
+import { set, useForm } from "react-hook-form"
 import { z } from 'zod'
+import { useRouter } from 'next/navigation';
+import { useDataStore } from "../../../../store/data";
 
 const schema = z.object({
   gender: z.string().min(1, { message: "O sexo é obrigatório" }),
@@ -21,9 +23,10 @@ export default function CreateDiet() {
   })
 
 
+
   const genderOptions = [
-    { label: "Masculino", value: "masculino" },
-    { label: "Feminino", value: "feminino" },
+    { label: "Masculino", value: "Masculino" },
+    { label: "Feminino", value: "Feminino" },
   ]
 
   const levelOptions = [
@@ -34,11 +37,24 @@ export default function CreateDiet() {
   ]
 
   const objectiveOptions = [
-    { label: 'Emagrecer', value: 'emagrecer' },
+    { label: 'Emagrecer', value: 'Emagrecer' },
     { label: 'Hipertrofia', value: 'Hipertrofia' },
     { label: 'Hipertrofia + Definição', value: 'Hipertrofia e Definição' },
     { label: 'Definição', value: 'Definição' },
   ]
+
+  const setPageTwo = useDataStore(state => state.setPageTwo)
+  const router = useRouter();
+
+
+  const handleCiarDiet = (data: FormData) => {
+    setPageTwo({
+      gender: data.gender,
+      level: data.level,
+      objective: data.objective
+    });
+    router.push("/readyDiet")
+  }
 
 
   return (
@@ -48,14 +64,40 @@ export default function CreateDiet() {
         title="Finalizando Dieta"
       />
 
-      <div>
+      <div className="p-3">
         <Select
           name="gender"
           control={control}
           error={errors.gender?.message}
           options={genderOptions}
+          title="Sexo"
+        />
+
+        <Select
+          name="gender"
+          control={control}
+          error={errors.gender?.message}
+          options={levelOptions}
+          title="Selecione nível de atividade física"
+        />
+
+        <Select
+          name="gender"
+          control={control}
+          error={errors.gender?.message}
+          options={objectiveOptions}
+          title="Selecione seu objetivo"
         />
       </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={handleSubmit(handleCiarDiet)}
+          className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
+          Avançar
+        </button>
+      </div>
+
 
     </div>
   )

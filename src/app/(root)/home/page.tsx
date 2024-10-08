@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from "@/components/button/button";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
@@ -26,12 +27,8 @@ export default function Home() {
         <button
           onClick={handleNavigation}
           className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
-          Gerar Dieta
+          Avançar
         </button>
-
-
-
-
       </div>
 
     </main>
