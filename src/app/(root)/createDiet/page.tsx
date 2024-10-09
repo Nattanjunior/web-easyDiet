@@ -47,7 +47,7 @@ export default function CreateDiet() {
   const router = useRouter();
 
 
-  const handleCiarDiet = (data: FormData) => {
+  const handleCreateDiet = (data: FormData) => {
     setPageTwo({
       gender: data.gender,
       level: data.level,
@@ -71,30 +71,33 @@ export default function CreateDiet() {
           error={errors.gender?.message}
           options={genderOptions}
           title="Sexo"
+          placeholder="Selecione seu sexo..."
         />
 
         <Select
-          name="gender"
+          name="level"
           control={control}
           error={errors.gender?.message}
           options={levelOptions}
           title="Selecione nível de atividade física"
+          placeholder="Selecione seu nível..."
         />
 
         <Select
-          name="gender"
+          name="objective"
           control={control}
           error={errors.gender?.message}
           options={objectiveOptions}
           title="Selecione seu objetivo"
+          placeholder="Selecione seu objetivo..."
         />
       </div>
 
       <div className="flex justify-center">
         <button
-          onClick={handleSubmit(handleCiarDiet)}
+          onClick={handleSubmit(handleCreateDiet)}
           className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
-          Avançar
+          Gerar Dieta
         </button>
       </div>
 
