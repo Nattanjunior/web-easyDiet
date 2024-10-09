@@ -5,7 +5,7 @@ import { LoaderCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
-  step: string;
+  step?: string;
   title: string;
 }
 
