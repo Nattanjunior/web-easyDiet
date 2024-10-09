@@ -16,21 +16,25 @@ interface SelectProps {
 
 export function Select({ name, control, placeholder, rules, error, options, title }: SelectProps) {
   return (
-    <div>
+    <div className='p-3'>
       <Controller
         name={name}
         control={control}
         rules={rules}
 
         render={({ field: { onChange, onBlur, value } }) => (
-          <div className='p-3'>
+          <div>
             <p className='text-white font-semibold'>{title}:</p>
-            <select className='outline-none w-[100%] h-[4.4rem] font-semibold mb-[1rem] rounded-md'>
+            <select
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              className='outline-none w-[100%] h-[4.4rem] font-semibold mb-[1rem] rounded-md'>
+              <option value="" defaultValue={placeholder}>{placeholder}</option>
               {options.map((element) => (
                 <option
-                  value="dados"
-                  onChange={onChange}
-                  onBlur={onBlur}
+                  key={element.value}
+                  value={element.value}
                 >
                   {element.value}
                 </option>
@@ -39,6 +43,9 @@ export function Select({ name, control, placeholder, rules, error, options, titl
           </div>
         )}
       />
+      {error && (
+        <p className='text-red-500'>{error}</p>
+      )}
     </div>
   )
 }
