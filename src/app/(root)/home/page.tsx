@@ -11,7 +11,7 @@ export default function Home() {
   }
 
   return (
-    <main className="w-full h-screen flex justify-center ">
+    <div className="w-full h-screen flex justify-center ">
       <div className="w-full text-center flex flex-col justify-center items-center">
         <Image
           src={require("../../../assets/images/logo.svg")}
@@ -30,6 +30,6 @@ export default function Home() {
         </button>
       </div>
 
-    </main>
+    </div>
   );
 }
