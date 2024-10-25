@@ -18,7 +18,7 @@ export function Input({ name, control, placeholder, rules, error }: InputProps) 
         control={control}
         rules={rules}
 
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({ field: { onChange, onBlur, value = '' } }) => (
           <input type='text'
             className='h-[4.4rem] w-[100%] bg-white p-3 rounded-md outline-none'
             placeholder={placeholder}
