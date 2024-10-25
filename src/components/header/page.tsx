@@ -17,7 +17,7 @@ export function Header({ step, title }: HeaderProps) {
   }
 
   return (
-    <div className='bg-white p-4 pb-9 rounded-bl-2xl rounded-br-2xl '>
+    <header className='bg-white p-4 pb-9 rounded-bl-2xl rounded-br-2xl '>
       <div className='flex items-center gap-[.6rem] mb-[.8rem]'>
         <ArrowLeft size={30} onClick={handleNavigationBack} />
         <p>{step}</p>
@@ -25,7 +25,7 @@ export function Header({ step, title }: HeaderProps) {
       </div>
 
       <h1 className='text-[2.78rem] font-semibold'>{title}</h1>
-    </div>
+    </header>
   )
 
 }
