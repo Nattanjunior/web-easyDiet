@@ -10,9 +10,10 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				blueDark: "#0F232C",
+				ColorBackground: "#000",
 				blueButton: "#009AD6",
-				greenDiet: "#94F323",
+				ColorGreen: "#94F323",
+				ColorApi: "#D0D0D066",
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
@@ -58,6 +59,21 @@ const config: Config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			animation: {
+				fade: 'fadeIn 3s ease',
+				opacity: 'opacity 2s ease-in-out'
+			},
+			keyframes: {
+				fadeIn: {
+					'0%': { opacity: '0.1' , transform:'translateY(-10%)'},
+					'100%': {opacity: '1',  transform:'translateY(0%)'}
+				},
+				opacity: {
+					'0%': { opacity: '0'},
+					'100%': {opacity: '1'}
+				}
+
 			}
 		}
 	},
