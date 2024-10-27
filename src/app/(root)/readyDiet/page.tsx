@@ -1,10 +1,10 @@
 'use client'
 
 import { useDataStore } from "../../../../store/data"
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query"
 import type { Data } from "../../../../types/data"
 import { api } from "../../../../services/api"
 import { useEffect, useState } from "react"
+import { Clock3 } from 'lucide-react';
 
 interface ResponseData {
   data: Data
@@ -34,7 +34,7 @@ export default function ReadyDiet() {
 
 
         console.log(response.data);
-        setReturnApi(response.data)
+        setReturnApi(response.data);
 
       };
 
@@ -45,20 +45,61 @@ export default function ReadyDiet() {
 
   }, []);
 
+  if (!ReturnApi) {
+    return (
+      <div className="flex justify-center items-center gap-[2rem] h-screen ">
+        <div className="balls animate-bounce transition-all delay-100"></div>
+        <div className="balls animate-bounce transition-all delay-150"></div>
+        <div className="balls animate-bounce transition-all delay-200 "></div>
+      </div>
+    )
+  }
+
 
   return (
-    <div>
+    <div className="animate-opacity">
       <header className='bg-white p-10  rounded-bl-2xl rounded-br-2xl '>
         <h1 className='text-[3.5rem] font-semibold pt-[4.8rem]'>Minha Dieta</h1>
       </header>
 
-      <div className="my-[3rem] text-white pl-[1.6rem]">
-        <h1 className="font-semibold text-[2rem]">{user.name}</h1>
-        <h2 className="font-semibold text-[1.6rem]">Foco: {user.objective}</h2>
-        <p className="font-semibold text-[1.6rem]">refeições</p>
+      <div className="mt-[3rem] text-white pl-[1.6rem]">
+        <h1 className="font-semibold text-[3rem]">{user.name}</h1>
+        <h2 className=" text-[2rem]"> <span className="font-semibold">Foco:</span> {user.objective}</h2>
+        <p className="font-semibold text-[2.5rem] mt-[2rem]">Refeições</p>
       </div>
 
-      <main>
+      <main className=" bg-white p-[1.2rem] rounded-tl-3xl rounded-tr-2xl z-50">
+        {ReturnApi && (
+          ReturnApi.data.refeicoes.map((refeicao) => (
+            <div key={refeicao.nome} className="flex flex-col mt-[1rem] bg-ColorApi rounded-2xl p-[.8rem] text-[1.8rem]">
+
+              <div className="flex justify-between">
+                <p className="font-bold">{refeicao.nome}</p>
+                <p className="flex items-center gap-2"> <Clock3 size={14} /> Horário: {refeicao.horario}</p>
+              </div>
+              <p className="my-[1.2rem] font-semibold">Alimentos</p>
+
+              {refeicao.alimentos && (
+                <ul>
+                  {refeicao.alimentos.map((alimento, index) => (
+                    <li key={index}>{alimento}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))
+        )}
+
+        <div className="flex flex-col mt-[1rem] bg-ColorApi rounded-lg p-[.8rem]">
+          <h1 className="font-bold text-[1.8rem]">Suplementos</h1>
+          {ReturnApi && (
+            ReturnApi.data.suplementos.map((suplemento, index) => (
+              <ul>
+                <li key={index}>{suplemento}</li>
+              </ul>
+            ))
+          )}
+        </div>
 
       </main>
     </div>

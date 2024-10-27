@@ -96,7 +96,7 @@ export default function CreateDiet() {
       <div className="flex justify-center">
         <button
           onClick={handleSubmit(handleCreateDiet)}
-          className="bg-blueButton text-[1.6rem] text-white font-semibold w-[80%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
+          className="bg-ColorGreen text-[1.6rem] text-white font-semibold w-[92%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
           Gerar Dieta
         </button>
       </div>
