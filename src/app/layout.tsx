@@ -29,14 +29,11 @@ export default function RootLayout({
   
 
   return (
-    <html lang="en">
+    <html lang="pt">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-blueDark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-ColorBackground`}
       >
-
         {children}
-
-
       </body>
     </html>
   );
