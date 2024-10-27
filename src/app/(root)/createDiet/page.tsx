@@ -58,9 +58,8 @@ export default function CreateDiet() {
 
 
   return (
-    <div>
+    <div className=" sm:w-[60%] md:w-[60%] md:flex flex-col m-auto">
       <Header
-        step="Passo 2"
         title="Finalizando Dieta"
       />
 
@@ -96,7 +95,7 @@ export default function CreateDiet() {
       <div className="flex justify-center">
         <button
           onClick={handleSubmit(handleCreateDiet)}
-          className="bg-ColorGreen text-[1.6rem] text-white font-semibold w-[92%] h-[4.4rem] rounded-[0.8rem] mt-[2.6rem] hover:cursor-pointer hover:translate-y-[-1.0rem] transition-all">
+          className="bg-ColorGreen text-[1.6rem] text-white font-semibold w-[93%] h-[4.4rem] rounded-[0.8rem] my-[1.6rem] hover:cursor-pointer transition-all sm:w-[95%] lg:w-[97%]">
           Gerar Dieta
         </button>
       </div>
