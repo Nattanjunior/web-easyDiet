@@ -81,6 +81,10 @@ body {
   font-size: 62.5%;
 }
 
+.balls {
+  @apply w-[2rem] h-[2rem] bg-ColorGreen rounded-full;
+}
+
 @layer base {
   * {
     @apply border-border;
