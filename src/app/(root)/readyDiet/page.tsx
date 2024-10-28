@@ -43,7 +43,7 @@ export default function ReadyDiet() {
       console.log(error);
     }
 
-  }, []);
+  }, [user.age, user.gender, user.height, user.level, user.name, user.objective, user.weight]);
 
   if (!ReturnApi) {
     return (

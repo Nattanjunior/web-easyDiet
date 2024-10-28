@@ -3,7 +3,7 @@
 import { Header } from "@/components/header/page";
 import { Select } from "@/components/input/select";
 import { zodResolver } from '@hookform/resolvers/zod'
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { z } from 'zod'
 import { useRouter } from 'next/navigation';
 import { useDataStore } from "../../../../store/data";
@@ -18,7 +18,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function CreateDiet() {
 
-  const { control, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({
+  const { control, handleSubmit, formState: { errors} } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
 

@@ -3,6 +3,7 @@
 import TypingAnimation from "@/components/ui/typing-animation";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import logo from '../../../assets/images/logo.png'
 
 export default function Home() {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function Home() {
     <div className="w-full h-screen flex justify-center animate-opacity ">
       <div className="w-full text-center flex flex-col justify-center items-center">
         <Image
-          src={require("../../../assets/images/logo.png")}
+          src={logo}
           alt="Image-LogoDiet"
           width={200}
           className="animate-fade lg:w-[25rem]"
