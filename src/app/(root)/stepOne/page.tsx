@@ -41,7 +41,7 @@ export default function StepOne() {
   return (
     <div className=" sm:w-[60%] md:w-[60%] md:flex flex-col m-auto">
       <Header
-        step="Passo 1"
+        
         title="Vamos Começar"
       />
 
